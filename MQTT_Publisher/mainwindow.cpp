@@ -11,7 +11,8 @@ MainWindow::MainWindow(QWidget *parent) :
     _pub_client = new QMqttClient(this);
     _pub_client->setHostname(ui->hostAddressLineEdit->text());
     _pub_client->setPort(ui->portSpinBox->value());
-
+    ui->publishButton->setEnabled(false);
+    ui->pingButton->setEnabled(false);
     connect(ui->portSpinBox,QOverload<int>::of(&QSpinBox::valueChanged),_pub_client,&QMqttClient::setPort);
 
     QObject::connect(_pub_client, &QMqttClient::pingResponseReceived, this,&MainWindow::updateLog);
@@ -25,8 +26,12 @@ MainWindow::MainWindow(QWidget *parent) :
 
         if(_pub_client->state() == QMqttClient::Disconnected){
             ui->connectButton->setText("Connect");
+            ui->pingButton->setEnabled(false);
+            ui->publishButton->setEnabled(false);
         }else{
             ui->connectButton->setText("Disconnect");
+            ui->pingButton->setEnabled(true);
+            ui->publishButton->setEnabled(true);
         }
     });
 
