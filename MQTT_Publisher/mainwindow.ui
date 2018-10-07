@@ -114,7 +114,7 @@
     <item>
      <widget class="QLineEdit" name="topic_Lineedit">
       <property name="text">
-       <string>topic/as</string>
+       <string>topic/test</string>
       </property>
      </widget>
     </item>

@@ -74,7 +74,7 @@ void MainWindow::on_publishButton_clicked()
 void MainWindow::on_pingButton_clicked()
 {
     _pub_client->requestPing();
-    ui->log_TextBrowser->insertPlainText(QDateTime::currentDateTime().toString()+": Pign Requested.");
+    ui->log_TextBrowser->insertPlainText(QDateTime::currentDateTime().toString()+": Pign Requested.\n");
 }
 
 void MainWindow::on_connectButton_clicked()

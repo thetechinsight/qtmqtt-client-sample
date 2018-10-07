@@ -85,7 +85,7 @@ void MainWindow::on_connectButton_clicked()
 void MainWindow::on_pingButton_clicked()
 {
     _sub_client->requestPing();
-    ui->log_TextBrowser->insertPlainText(QDateTime::currentDateTime().toString()+": Pign Requested.");
+    ui->log_TextBrowser->insertPlainText(QDateTime::currentDateTime().toString()+": Pign Requested.\n");
 }
 
 void MainWindow::on_subcribeButton_clicked()
@@ -95,5 +95,5 @@ void MainWindow::on_subcribeButton_clicked()
         return;
     }
     _sub_client->subscribe(QMqttTopicFilter(ui->topic_Lineedit->text()));
-    ui->log_TextBrowser->insertPlainText(QDateTime::currentDateTime().toString()+": "+QString("Subscribe to %1.").arg(ui->topic_Lineedit->text()));
+    ui->log_TextBrowser->insertPlainText(QDateTime::currentDateTime().toString()+": "+QString("Subscribe to %1.\n").arg(ui->topic_Lineedit->text()));
 }
