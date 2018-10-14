@@ -53,6 +53,8 @@ MainWindow::MainWindow(QWidget *parent) :
                 + message
                 + QLatin1Char('\n');
         ui->log_TextBrowser->insertPlainText(content);
+        ui->textBrowser->insertPlainText(message.constData());
+        ui->textBrowser->insertPlainText("\n");
     });
 }
 
